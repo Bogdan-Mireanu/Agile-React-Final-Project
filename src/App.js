@@ -10,13 +10,9 @@ function App() {
         <div className="navbar">
           Navbar...
         </div>
-        
         <Header/>
         <SearchBar/>
-        <div className="books-container">
-        BooksList... 
-        </div>
-      </div>
+    </div>
   );
 }
 
