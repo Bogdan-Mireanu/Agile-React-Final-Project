@@ -21,10 +21,10 @@ export default function BookDetails(prop) {
         <>
             {data.volumeInfo && (
             <div className = ''>
-                <h4>Title: {data.volumeInfo.title}</h4>
-                <h4>Publisher: {data.volumeInfo.publisher}</h4>
-                <h4>Publish Date: {data.volumeInfo.publishedDate}</h4>
-                <h4>Description: {data.volumeInfo.description}</h4>
+                <h2> {data.volumeInfo.title}</h2>
+                <h5 className='text-muted'>Publisher: {data.volumeInfo.publisher}</h5>
+                <h5 className='text-muted'>Publish Date: {data.volumeInfo.publishedDate}</h5>
+                {data.volumeInfo.description}
             </div>
             )}
         </>

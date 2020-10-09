@@ -8,13 +8,14 @@ export default function Book({books}){
     console.log('modal>> ', modal);
     let id;
     return (
-        <div className=''>
-            <h2>{books.volumeInfo.title}</h2>
+        <div className='col m-1 shadow-sm'>
             <img onClick={()=>showModal(!modal)} className="" src={books.volumeInfo.imageLinks ? books.volumeInfo.imageLinks.thumbnail : null} alt="cover"/>
-            <h3>{books.volumeInfo.authors}</h3>
+            <h4 className=''>{books.volumeInfo.title}</h4>            
+            <h5 className=' text-muted'>{books.volumeInfo.authors}</h5>
             <h3>{modal}</h3>
             {modal && <CustomModal toggleModal = {showModal} show={modal}> <BookDetails id={books.id}></BookDetails>
                 </CustomModal>}
+            
         </div>
     )
 }

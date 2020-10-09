@@ -20,16 +20,22 @@ export default function SearchBar(){
 
     return (
         <>
-            <div className=''>
-                    <form>
-                        <input type='text' value={term} autoFocus onChange={(e) => setTerm(e.target.value)}/>
-                        <button type='submit' onClick={handleSubmit}>Search</button>
-                    </form>
+        <div  className='container'>
+            <div className="row justify-content-md-center">
+                <form className='input-group mb-3 col-sm  text-center'> 
+                    <input type='text' className='form-control' placeholder='Enter a search term' value={term} autoFocus onChange={(e) => setTerm(e.target.value)}/>
+                    <div className='input-group-append'>
+                        <button className='btn btn-outline-secondary' type='submit' onClick={handleSubmit}>Search</button>
+                    </div>
+                </form> 
             </div>
-            <React.Fragment>
-                   {!books.length ? "Enter a search term and press submit button!" : books.map(item => <Book books={item} key={item.id}/>)} 
-            </React.Fragment>
-           
+            
+            <div  className='row justify-content-center row-cols-6'>
+                <React.Fragment>
+                    {!books.length ? "" : books.map(item => <Book books={item} key={item.id}/>)} 
+                </React.Fragment>
+            </div>
+        </div>    
         </>
     )
 }
