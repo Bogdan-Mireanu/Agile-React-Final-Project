@@ -10,13 +10,12 @@ export default function Book({books}){
 
     let id;
     return (
-        <div className='col m-1 shadow-sm'>
-            <img className="" src={books.volumeInfo.imageLinks ? books.volumeInfo.imageLinks.thumbnail : null} alt="cover"/>
+        <div className='card text-center text-dark mb-2 ml-2 flex-grow-1 p-2 card-book'>
+            <img className='card-img-top' src={books.volumeInfo.imageLinks ? books.volumeInfo.imageLinks.thumbnail : null} alt="cover"/>
           
-            <h4 className=''>{books.volumeInfo.title}</h4>            
-            <h5 className=' text-muted'>{books.volumeInfo.authors}</h5>
-            <Link to={`/bookDetails/${books.id}`}>Details</Link>
-            
+            <h5 className='card-title'>{books.volumeInfo.title}</h5>            
+            <h6 className=' card-subtitle mb-2 text-dark'>{books.volumeInfo.authors}</h6>
+            <p class="btn details"><Link to={`/bookDetails/${books.id}`}>Get more details</Link></p>
         </div>
     )
 }

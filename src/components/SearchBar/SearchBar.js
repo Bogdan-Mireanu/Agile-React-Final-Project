@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import Book from '../Book/Book';
+import Navbar from '../Navbar/Navbar';
 
 
 export default function SearchBar(){
@@ -20,12 +21,17 @@ export default function SearchBar(){
 
     return (
         <>
+        <Navbar/>
         <div  className='container'>
+            <div className="header">
+                <i className="fas fa-book-reader fa-5x"></i>
+                <h1>Google Books API</h1>
+            </div>
             <div className="row justify-content-md-center">
                 <form className='input-group mb-3 col-sm  text-center'> 
                     <input type='text' className='form-control' placeholder='Enter a search term' value={term} autoFocus onChange={(e) => setTerm(e.target.value)}/>
                     <div className='input-group-append'>
-                        <button className='btn btn-outline-secondary' type='submit' onClick={handleSubmit}>Search</button>
+                        <button className='btn btn-outline-secondary search-books' type='submit' onClick={handleSubmit}>Search</button>
                     </div>
                 </form> 
             </div>
@@ -35,7 +41,10 @@ export default function SearchBar(){
                     {!books.length ? "" : books.map(item => <Book books={item} key={item.id}/>)} 
                 </React.Fragment>
             </div>
-        </div>    
+        </div>  
+        <div class="card-footer fixed-bottom h6 bg-light">
+            2020 © AgiHub Team 
+        </div>  
         </>
     )
 }

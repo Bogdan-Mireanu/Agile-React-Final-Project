@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './components/Header/Header';
+import Login from './components/Login/Login';
 import SearchBar from './components/SearchBar/SearchBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -16,11 +16,8 @@ function App() {
     <Router>
     
     <div className="App">
-        <div className="navbar">
-          Navbar...
-        </div>
-        <Header/>
         <Switch>
+          <Route exact path="/login"><Login/></Route>
           <Route exact path="/bookDetails/:id"> <BookDetails /></Route>
           <Route exact path="/search">  <SearchBar /></Route>
         </Switch>
