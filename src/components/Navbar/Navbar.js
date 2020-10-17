@@ -1,16 +1,17 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default function Navbar(){
     return (
-        <ul className="nav justify-content-center bg-light">
+        <ul className="nav bg-light">
             <li className="nav-item">
-                <a className="nav-link h5 " href="#">Home</a>
+                <Link className='' to='/'><p className="nav-link h5 " href="#">Home</p></Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link h5" href="#">Wishlist</a>
+                <Link className='' to='/whishlist'><p className="nav-link h5" href="#">Wishlist</p></Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link h5" href="#">Contact</a>
+                <Link className='' to='/search'><p className="nav-link h5" href="#">Search</p></Link>
             </li>
         </ul>
     )

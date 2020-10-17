@@ -15,7 +15,7 @@ export default function Book({books}){
           
             <h5 className='card-title'>{books.volumeInfo.title}</h5>            
             <h6 className=' card-subtitle mb-2 text-dark'>{books.volumeInfo.authors}</h6>
-            <p class="btn details"><Link to={`/bookDetails/${books.id}`}>Get more details</Link></p>
+            <p className="btn details"><Link to={`/bookDetails/${books.id}`}>Get more details</Link></p>
         </div>
     )
 }

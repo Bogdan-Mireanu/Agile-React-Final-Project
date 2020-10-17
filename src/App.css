@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .form-container {
@@ -9,6 +11,7 @@
   width: 30vw;
   margin: 1rem auto;
 }
+
 .fas {
   color:  #ff9524;
 }
@@ -29,7 +32,20 @@ h1{
   margin-bottom: 0.5rem;
 }
 .nav{
-  margin-bottom: 4rem;
+   margin-bottom: 2rem;
+}
+.nav li {
+  margin : 0.1rem 7rem;
+}
+.nav li a:hover{
+  text-decoration: none;
+}
+p:hover {
+  background-image: linear-gradient(260deg, rgb(250, 173, 57) 0%,  rgb(248, 198, 124) 100%);
+  color: #fffdfd;
+}
+.card-footer {
+  background-color: #d3d3d3;
 }
 .btn-block{
   width: 6rem;
@@ -41,7 +57,19 @@ h1{
 .card-book{
   box-shadow: 4px 4px 20px -2px #cec7c0;
 }
+.book-title .btn {
+  margin-top: 1rem;
+}
 .details {
   background-color: #ff9524;
   color: #fffdfd;
+}
+.card-bookDetails {
+  background-color: rgb(243, 179, 83);
+  color: whitesmoke;
+}
+.book-body h5{
+  color:whitesmoke;
+  padding: 0 1rem;
+
 }

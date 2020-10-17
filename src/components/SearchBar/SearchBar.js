@@ -42,7 +42,7 @@ export default function SearchBar(){
                 </React.Fragment>
             </div>
         </div>  
-        <div class="card-footer fixed-bottom h6 bg-light">
+        <div className="card-footer fixed-bottom h6 mb-0">
             2020 © AgiHub Team 
         </div>  
         </>

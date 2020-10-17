@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default function Login(){
     return (
@@ -26,7 +27,7 @@ export default function Login(){
            
             <div className="d-flex justify-content-between mx-auto col-md-8">
 
-                    <p><button type="submit" className="btn btn-block btn-primary">Login</button></p>
+                    <Link to='/search'><p><button type="submit" className="btn btn-block btn-primary">Login</button></p></Link>
                     <p><button type="submit" name="save" className="btn btn-block btn-success">Register</button></p>
             
             </div>
