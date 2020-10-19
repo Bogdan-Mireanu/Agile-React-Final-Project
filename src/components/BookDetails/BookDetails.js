@@ -1,16 +1,18 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Button} from 'react-bootstrap';
 import CustomModal from '../Modal/CustomModal';
 import {useParams} from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Note from '../Note/Note';
+import {WishContext} from '../../context/WishContext';
 
 export default function BookDetails(prop) {
     const [modal, showModal] = useState(false);
     const [data, setData] = useState({});
     let { id } = useParams();
+    const {updateWishList} = useContext(WishContext);
 
     useEffect(() => {
         async function getDetails(){
@@ -23,8 +25,10 @@ export default function BookDetails(prop) {
     }, [id]);
 
     function addToWishList(){
-        console.log('added');
+        updateWishList(data);
     }
+
+
     return (
         <>  
             <Navbar/>
