@@ -10,24 +10,29 @@ const initialValue = {
 const AuthContext = React.createContext(initialValue);
 
 function AuthContextProvider({ children }) {
-    const [value, setValue] = useState(initialValue)
+    const [value, setValue] = useState(initialValue);
 
     useEffect(() => {
         
         firebase.auth().onAuthStateChanged((user) => {
-            console.log(user);
+            
+            //console.log(user);
             if (user) {
+               console.log(user);
                 // User is signed in.
                 setValue({ isAuthenticated: true, user });
+           
             } else {
                 // User is signed out.
                 setValue(initialValue);
             }
+            
         });
     }, []);
 
     return (
         <AuthContext.Provider value={value}>
+            
             {children}
         </AuthContext.Provider>
     )

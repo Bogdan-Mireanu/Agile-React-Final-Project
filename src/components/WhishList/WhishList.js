@@ -1,18 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Navbar from '../Navbar/Navbar';
 import WhishContext from '../../context/WhishContext';
-
+import * as firebase from 'firebase/app';
+import 'firebase/storage';
+import { AuthContext, AuthContextProvider } from '../Login/AuthContext';
 
 export default function WhishList(){
-    const [whishlist, setWishlist] =useState([]);
+    const db = firebase.firestore();
+    const [wishlist, setWishlist] =useState();
+    
+    const { user }= useContext(AuthContext);
+ 
+    useEffect(() => {
+       if(user){
+           console.log("User >> ", user);
+           async function getData() {
+               const snapshot = await firebase.firestore().collection('wishlist').get();
+               return snapshot.docs.filter(doc => doc.id === user.email).map(doc => doc.data());
+        };
+        getData().then(c => setWishlist(c));
+    }
+    }, [db,user]);
+    if(wishlist){
+      console.log("Wishlist >> ", Object.keys(wishlist[0]));
+    }
     return (
+       
     <WhishContext.Provider>
         <Navbar/>
+            {/* item is object with user's name and its other details on it */}
+            {wishlist && Object.keys(wishlist[0]).map((item, index) => {
+                return <div key={index}>
+                    {item}</div>;
+            })}
         <p>List</p>
         <div className="card-footer fixed-bottom h6 mb-0">
                 2020 © AgiHub Team 
         </div> 
+        
     </WhishContext.Provider>
+ 
     )
     
 }

@@ -38,7 +38,7 @@ function App() {
           <Route exact path="/"><Login/></Route>
           <Route exact path="/search">  <SearchBar /></Route>
           <Route exact path="/bookDetails/:id"> <BookDetails /></Route>
-          <Route exact path='/whishlist'><WhishList/></Route>
+          <Route exact path="/wishlist"> <WhishList/></Route>
           <Route exact path="/register"><Login/></Route>
           <Route>{() => <h1>404</h1>}</Route>
         </Switch>     

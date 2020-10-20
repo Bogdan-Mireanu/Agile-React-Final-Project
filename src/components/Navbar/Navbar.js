@@ -8,7 +8,7 @@ export default function Navbar(){
                 <Link className='' to='/'><p className="nav-link h5 " href="#">Home</p></Link>
             </li>
             <li className="nav-item">
-                <Link className='' to='/whishlist'><p className="nav-link h5" href="#">Wishlist</p></Link>
+                <Link className='' to='/wishlist'><p className="nav-link h5" href="#">Wishlist</p></Link>
             </li>
             <li className="nav-item">
                 <Link className='' to='/search'><p className="nav-link h5" href="#">Search</p></Link>
