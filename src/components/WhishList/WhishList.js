@@ -28,12 +28,12 @@ export default function WhishList(){
        
     <WhishContext.Provider>
         <Navbar/>
-            {/* item is object with user's name and its other details on it */}
+            <p>List</p>
             {wishlist && Object.keys(wishlist[0]).map((item, index) => {
                 return <div key={index}>
                     {item}</div>;
             })}
-        <p>List</p>
+       
         <div className="card-footer fixed-bottom h6 mb-0">
                 2020 © AgiHub Team 
         </div> 

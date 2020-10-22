@@ -31,7 +31,6 @@ export default function BookDetails(prop) {
         
         const snapshot = await firebase.firestore().collection('wishlist').get();
         var wishlistRef = db.collection('wishlist').doc(user.email);
-        wishlistRef.then(x=>console.log(x));
 
         var setWithMerge = wishlistRef.set({
             [id]: title
