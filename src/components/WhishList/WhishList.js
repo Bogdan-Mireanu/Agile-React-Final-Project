@@ -3,6 +3,7 @@ import Navbar from '../Navbar/Navbar';
 import WhishContext from '../../context/WhishContext';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
+import BookEntity from '../BookDetails/BookEntity';
 import { AuthContext, AuthContextProvider } from '../Login/AuthContext';
 
 export default function WhishList(){
@@ -31,7 +32,7 @@ export default function WhishList(){
             <p>List</p>
             {wishlist && Object.keys(wishlist[0]).map((item, index) => {
                 return <div key={index}>
-                    {item}</div>;
+                    <BookEntity id={item}> </BookEntity></div>;
             })}
        
         <div className="card-footer fixed-bottom h6 mb-0">

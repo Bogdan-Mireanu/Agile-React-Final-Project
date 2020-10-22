@@ -12,7 +12,7 @@ import { AuthContext, AuthContextProvider } from '../Login/AuthContext';
 export default function BookDetails(prop) {
     const [modal, showModal] = useState(false);
     const [data, setData] = useState({});
-    let { id } = useParams();
+    let { id } = useParams() || prop;
     const { user } = useContext(AuthContext);
     const db = firebase.firestore();
     const [wishlist, setWishlist] = useState([]);

@@ -10,8 +10,6 @@ export default function Login(){
     const { pathname } = useLocation();
     const isRegister = (pathname === '/register');
     const { isAuthenticated } = useContext(AuthContext);
-    const x = useContext(AuthContext);
-    console.log(x);
     async function handleSubmit(e) {
         e.preventDefault();
         try {
