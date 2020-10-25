@@ -13,7 +13,17 @@ export default function BookEntity(prop) {
 
     const [data, setData] = useState();
     let { id } =  prop;
-    
+    const { user } = useContext(AuthContext);
+    const [note, setNote] = useState();
+
+    async function getNote() {
+        console.log('Get notes');
+        const snapshot = await firebase.firestore().collection('notes').get();
+        const docs = snapshot.docs.filter(doc => doc.id === user.email).map(doc => doc.data());
+        const bookNote = docs[0][id] ? docs[0][id] :'No note to display';
+        setNote(bookNote);
+    };
+  
     useEffect(() => {
 
         async function getDetails() {
@@ -37,7 +47,8 @@ export default function BookEntity(prop) {
                         <h5 className='t'>Publish Date: {data.volumeInfo.publishedDate}</h5>
                         <h5 className=''>Description: {data.volumeInfo.description}</h5>
                     </div>
-
+                <Button onClick={getNote}>Get Note</Button>
+                {note}
                 </div>
                 </div>)
             }
