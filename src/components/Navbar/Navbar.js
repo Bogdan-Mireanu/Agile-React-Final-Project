@@ -1,10 +1,25 @@
 import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect, useLocation } from 'react-router-dom';
 import { AuthContext, AuthContextProvider } from '../Login/AuthContext';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import { Button } from 'react-bootstrap';
 export default function Navbar(){
-   const { user } = useContext(AuthContext);
+   const { isAuthenticated, user,  updateUser } = useContext(AuthContext);
+
+    
+   async function signOut(){
+       await firebase.auth().signOut().then(function () {
+          console.log('User signed out...');           
+       });
+   }
+    
+    if(!isAuthenticated){
+        return <Redirect to='/'></Redirect>
+    }
     return (
         <>
+        
         <ul className="nav bg-light">
             {user && <div>Hi, {user.email}</div>}
             <li className="nav-item">
@@ -16,7 +31,7 @@ export default function Navbar(){
             <li className="nav-item">
                 <Link className='' to='/search'><p className="nav-link h5" href="#">Search</p></Link>
             </li>
-      
+                {user && <Button onClick={signOut}>Sign out</Button>} 
         </ul>
         </>
     )

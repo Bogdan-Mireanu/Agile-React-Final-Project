@@ -10,6 +10,7 @@ export default function Login(){
     const { pathname } = useLocation();
     const isRegister = (pathname === '/register');
     const { isAuthenticated } = useContext(AuthContext);
+
     async function handleSubmit(e) {
         e.preventDefault();
         try {
@@ -27,13 +28,15 @@ export default function Login(){
             //setMessage(e.message);
         }
     }
+
     if (isAuthenticated) {
         return <Redirect to='/search' />
     }
-  
+     
     return (
         
         <form onSubmit={handleSubmit} className="form-container">
+            Do not have an account? <Link to ='/register'>Click here to register</Link>
             <div className="header">
                 <i className="fas fa-book-reader fa-5x"></i>
                 <h1>Google Books API</h1>
@@ -49,13 +52,13 @@ export default function Login(){
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password:</label>
-                        <input id="password" className="form-control text-center" type="text" {...bindInput('password')}/>
+                        <input id="password" className="form-control text-center" type="password" {...bindInput('password')}/>
                     </div>
                     {isRegister && (
-                        <p>
+                        <div className="form-group">
                             <label htmlFor="retype_password">Retype Password</label>
                             <input type="password" className="form-control text-center" id="retype_password" {...bindInput('retype_password')} />
-                        </p>
+                        </div>
                     )}
                 </div>
             </div>

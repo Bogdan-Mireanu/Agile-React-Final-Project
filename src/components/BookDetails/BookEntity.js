@@ -12,15 +12,18 @@ import { AuthContext, AuthContextProvider } from '../Login/AuthContext';
 export default function BookEntity(prop) {
 
     const [data, setData] = useState();
-    let { id } =  prop;
-    const { user } = useContext(AuthContext);
     const [note, setNote] = useState();
+    const { user } = useContext(AuthContext);
+    let { id } =  prop;
 
     async function getNote() {
         console.log('Get notes');
         const snapshot = await firebase.firestore().collection('notes').get();
         const docs = snapshot.docs.filter(doc => doc.id === user.email).map(doc => doc.data());
-        const bookNote = docs[0][id] ? docs[0][id] :'No note to display';
+        let bookNote = 'No note to display';
+        if (docs.length > 0 && docs[0][id]) {
+            bookNote = docs[0][id];
+        }
         setNote(bookNote);
     };
   

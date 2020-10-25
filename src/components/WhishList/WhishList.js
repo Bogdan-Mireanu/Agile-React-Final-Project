@@ -18,19 +18,18 @@ export default function WhishList(){
            async function getData() {
                const snapshot = await firebase.firestore().collection('wishlist').get();
                return snapshot.docs.filter(doc => doc.id === user.email).map(doc => doc.data());
+
         };
         getData().then(c => setWishlist(c));
     }
     }, [db,user]);
-    if(wishlist){
-      console.log("Wishlist >> ", Object.keys(wishlist[0]));
-    }
+    console.log(wishlist);
     return (
        
     <WhishContext.Provider>
         <Navbar/>
             <p>List</p>
-            {wishlist && Object.keys(wishlist[0]).map((item, index) => {
+            {wishlist && wishlist.length > 0 && Object.keys(wishlist[0]).map((item, index) => {
                 return <div key={index}>
                     <BookEntity id={item}> </BookEntity></div>;
             })}
