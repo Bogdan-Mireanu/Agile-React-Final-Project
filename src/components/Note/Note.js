@@ -1,13 +1,11 @@
 import React from 'react';
-import { useEffect, useState, useContext } from 'react';
-import axios from 'axios';
-import { Button, Modal, Form } from 'react-bootstrap';
-import CustomModal from '../Modal/CustomModal';
+import { useContext } from 'react';
+import { Button,  Form } from 'react-bootstrap';
 import {useParams} from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
-import { AuthContext, AuthContextProvider } from '../Login/AuthContext';
+import { AuthContext} from '../Login/AuthContext';
 
 export default function Note(prop) {
     const { values, bindInput } = useForm(null);
@@ -29,7 +27,7 @@ export default function Note(prop) {
                 <p>
                 <Form.Group controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Introduce your note</Form.Label>
-                        <Form.Control as="textarea" rows={3} type="note" {...bindInput('note')}></Form.Control>
+                        <Form.Control as="textarea" rows={4} column={10} type="note" {...bindInput('note')}></Form.Control>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit

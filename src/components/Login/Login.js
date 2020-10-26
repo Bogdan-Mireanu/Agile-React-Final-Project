@@ -36,7 +36,11 @@ export default function Login(){
     return (
         
         <form onSubmit={handleSubmit} className="form-container">
-            Do not have an account? <Link to ='/register'>Click here to register</Link>
+           
+            {!isRegister 
+            ?  <h3 class="register_warn"> Do not have an account? <Link to ='/register'><span class="text-success">Click here to Register!</span></Link></h3>
+            :  <h3 class="register_warn"> Already have an account? <Link to ='/'><span class="text-primary">Click here to Login!</span></Link></h3>
+            }
             <div className="header">
                 <i className="fas fa-book-reader fa-5x"></i>
                 <h1>Google Books API</h1>
@@ -64,14 +68,15 @@ export default function Login(){
             </div>
 
            
-            <div className="d-flex justify-content-between mx-auto col-md-8">
+            <div className="mx-auto">
 
                     {/** 
                     <Link to='/search'>*/}
                       
                     {/**</p></Link> */}
 
-                <p><button type="submit" className="btn btn-block btn-primary">{!isRegister ? 'Login' : 'Register'}</button></p>
+                <p><button type="submit" className = {`${!isRegister ? "btn btn-block btn-primary" : "btn btn-block btn-success"
+                }`}>{!isRegister ? 'Login' : 'Register'}</button></p>
             </div>
         </form>
     )

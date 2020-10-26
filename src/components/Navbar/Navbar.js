@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
-import {Link, Redirect, useLocation } from 'react-router-dom';
-import { AuthContext, AuthContextProvider } from '../Login/AuthContext';
+import {Link, Redirect } from 'react-router-dom';
+import { AuthContext } from '../Login/AuthContext';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import { Button } from 'react-bootstrap';
 export default function Navbar(){
-   const { isAuthenticated, user,  updateUser } = useContext(AuthContext);
+   const { isAuthenticated, user} = useContext(AuthContext);
 
     
    async function signOut(){
@@ -20,8 +20,8 @@ export default function Navbar(){
     return (
         <>
         
-        <ul className="nav bg-light">
-            {user && <div>Hi, {user.email}</div>}
+        <ul className="navbar navbar-expand-lg bg-light">
+            
             <li className="nav-item">
                 <Link className='' to='/'><p className="nav-link h5 " href="#">Home</p></Link>
             </li>
@@ -30,6 +30,9 @@ export default function Navbar(){
             </li>
             <li className="nav-item">
                 <Link className='' to='/search'><p className="nav-link h5" href="#">Search</p></Link>
+            </li>
+            <li>
+            {user && <div className="username">Hi, {user.email}</div>}
             </li>
                 {user && <Button onClick={signOut}>Sign out</Button>} 
         </ul>

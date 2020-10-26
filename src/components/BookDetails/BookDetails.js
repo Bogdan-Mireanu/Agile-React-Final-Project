@@ -57,26 +57,25 @@ export default function BookDetails(prop) {
         <>  
             <Navbar/>
             {data.volumeInfo && (
-            <div className = 'card flex-row card-bookDetails p-2'>
+            <div className = "container-bookdetails">
                 <div className="book-title">
-                    <h2> {data.volumeInfo.title}</h2>
+                    <h5> {data.volumeInfo.title.substring(0, 38)}</h5>
                     <img className='mb-2' src={data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail : null} alt="cover" />
                     <Button onClick={()=>showModal(!modal)}>Add note</Button>
-                        <Button variant='success' onClick={() => addToWishList(data.volumeInfo.title)}>Add to whishlist</Button>
-                {
-                modal && 
-                <CustomModal toggleModal={showModal} show={modal}>
-                <Note></Note>
-                </CustomModal>
-                }
+                    <Button variant='success' onClick={() => addToWishList(data.volumeInfo.title)}>Add to whishlist</Button>
+                    {
+                    modal && 
+                    <CustomModal toggleModal={showModal} show={modal}>
+                    <Note></Note>
+                    </CustomModal>
+                    }
                 </div>
-
                 <div className='book-body'>
-                    <h5 className=''>Publisher: {data.volumeInfo.publisher}</h5>
-                    <h5 className='t'>Publish Date: {data.volumeInfo.publishedDate}</h5>
-                    <h5 className=''>Description: {data.volumeInfo.description}</h5>
+                    <h5 className='body-authors'>Authors: {data.volumeInfo.authors ? data.volumeInfo.authors.slice(0, 1) : []}</h5>
+                    <h5 className='body-publisher'>Publisher: {data.volumeInfo.publisher}</h5>
+                    <h5 className='body-date'>Publish Date: {data.volumeInfo.publishedDate}</h5>
+                    <h5 className='body-description'>Description: {data.volumeInfo.description}</h5>
                 </div>
-
             </div>
             )}
         </>

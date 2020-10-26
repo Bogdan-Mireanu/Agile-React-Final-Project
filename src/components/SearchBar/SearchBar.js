@@ -11,7 +11,7 @@ export default function SearchBar(){
     function handleSubmit(e) {
         e.preventDefault();
         const searchBook = async () => {
-            const {data} = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${term}&key=AIzaSyDGsjWlMM4w2y0sFURdaxjU4fXtUvB5qMk&maxResults=10`)
+            const {data} = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${term}&key=AIzaSyDGsjWlMM4w2y0sFURdaxjU4fXtUvB5qMk&maxResults=12`)
             setBooks(data.items);
         };
         searchBook();
@@ -36,7 +36,7 @@ export default function SearchBar(){
                 </form> 
             </div>
             
-            <div  className='row justify-content-center row-cols-6'>
+            <div  className='books-container'>
                 <React.Fragment>
                     {!books.length ? "" : books.map(item => <Book books={item} key={item.id}/>)} 
                 </React.Fragment>

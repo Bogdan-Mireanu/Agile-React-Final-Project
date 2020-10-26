@@ -28,7 +28,7 @@ export default function WhishList(){
        
     <WhishContext.Provider>
         <Navbar/>
-            <p>List</p>
+            
             {wishlist && wishlist.length > 0 && Object.keys(wishlist[0]).map((item, index) => {
                 return <div key={index}>
                     <BookEntity id={item}> </BookEntity></div>;

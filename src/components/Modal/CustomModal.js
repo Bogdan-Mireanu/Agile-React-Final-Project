@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import { Modal, Button } from 'react-bootstrap';
+import { Modal} from 'react-bootstrap';
 export default function CustomModal(prop){
 
     const [show, setShow] = useState(prop.show);
@@ -8,7 +8,7 @@ export default function CustomModal(prop){
         setShow(false); 
         prop.toggleModal();
     };
-    const handleShow = () => setShow(true);
+    
     
     return(
         <Modal show={show} onHide={handleClose}>

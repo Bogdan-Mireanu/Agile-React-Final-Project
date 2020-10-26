@@ -42,17 +42,21 @@ export default function BookEntity(prop) {
         <>
           
             {data && (
-                <div className='adauga css'>
-                    <div className="">
-                        <h2> {data.volumeInfo.title}</h2>
-                    <div className=''>
-                        <h5 className=''>Publisher: {data.volumeInfo.publisher}</h5>
-                        <h5 className='t'>Publish Date: {data.volumeInfo.publishedDate}</h5>
-                        <h5 className=''>Description: {data.volumeInfo.description}</h5>
+                <div className="wish-container">
+                    <div className="wish-details">
+                        <h3> {data.volumeInfo.title}</h3>
+                        <p className=''>Publisher: {data.volumeInfo.publisher}</p>
+                        <p className='t'>Publish Date: {data.volumeInfo.publishedDate}</p>
                     </div>
-                <Button onClick={getNote}>Get Note</Button>
-                {note}
-                </div>
+                    <div className="wish-note">
+                        <div className="note-btn">
+                           <p><button className="btn btn-note" onClick={getNote}>Display my Note</button></p> 
+                        </div>
+                        <div className="note">
+                           {note}
+                        </div>
+                     
+                    </div>
                 </div>)
             }
         </>
