@@ -11,7 +11,7 @@ export default function SearchBar(){
     function handleSubmit(e) {
         e.preventDefault();
         const searchBook = async () => {
-            const {data} = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${term}&key=AIzaSyDGsjWlMM4w2y0sFURdaxjU4fXtUvB5qMk&maxResults=12`)
+            const {data} = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${term}&key=googlebooksapikeyhere`)
             setBooks(data.items);
         };
         searchBook();
